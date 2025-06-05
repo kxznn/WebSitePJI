@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Ferragens Negrão - Login</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-nav">
+            <img src="/img/imagem.png" alt="logo" width="210" height="60">
+        </div>
+    </header>
+    <main class="container">
+
+        <form id="loginForm">
+            <h1>Login </h1>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Usuário" required>
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Senha" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div>
+                <label class="remember-forgot">
+                    <a href="#">Esqueci a senha</a>
+                </label>
+            </div>
+            <div id="message"></div>
+            <button type="submit" class="login">Login</button>
+        </form>
+
+    </main>
+    <script>
+
+        const users = [
+            { username: "admin", password: "1234" },
+            { username: "user", password: "abcd" }
+        ];
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                message.textContent = "Login bem-sucedido";
+                message.style.color = "green";
+
+                setTimeout(() => {
+                    window.location.href = "https://github.com/kxznn/pgLogin/blob/main/test/index.html"; //COLOCAR A PAGINA PRINCIPAL
+                }, 500);
+            } else {
+                message.textContent = "Login ou senha inválidos";
+                message.style.color = "red";
+
+                setTimeout(() => {
+                    message.textContent = "";
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -6,7 +6,34 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <h2>Cadastro de usuário</h2>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                <img src="img/logo.png" alt="Logo Negrão">
+                </div>
+                <div class="search-container">
+                    <input type="text" placeholder="Buscar">
+                </div>
+                <div class="user-info">
+                    <span>João silva</span>
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+        <aside>
+        <div class="sidebar">
+            <a href="menu_principal.html">Inicio</a>
+            <a href="estoque.html">Estoque</a>
+            <a href="cadastro_produtos.html">Cadastrar peças</a>
+            <a href="cadastro_usuario.html">Cadastrar usuários</a>
+            <a href="saida_simulacao.html">Enviar produto</a>
+            <a href="envio.html">Histórico de movimentações</a>
+            <a href="#">Sair</a>
+        </div>
+    </aside>
     <form id="cadastroForm">
         <label for="nome">Nome:</label><br>
         <input type="text" id="nome" required><br>
@@ -21,7 +48,9 @@
         </select><br><br>
         <button type="submit">Cadastrar usuário</button><br><br>
     </form>
-    <input type="button" value ="Voltar" onclick="window.location.href='menu_principal.html';">
+    <div class="menu-principal">
+      <input type="button" value ="Voltar" onclick="window.location.href='menu_principal.html';">
+    </div>
     <script src="cadastro_usuario.js"></script>
 </body>
 </html>

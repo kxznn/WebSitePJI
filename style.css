@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  padding-top: 70px;
+}
+
+.cadastroForm {
+  padding: 30px 40px;
+}
+
+.cadastroForm h2 {
+  color: #222;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+.voltar {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.voltar input[type="button"] {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: green;
+}
+
+head {
+  animation: fadeIn 1s ease-in-out;
+  background: #f0f0f0;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#chartDiv {
+  width: auto;
+  height: auto;
+}
+
+#chartDi_saida {
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 20px;
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.logo img {
+  height: 60px;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.search-container input[type="text"] {
+  width: 300px;
+  margin: 20px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.user-info .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 300px;
+  height: calc(100% - 60px);
+  background-color: #121212;
+  padding: 20px;
+  color: white;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
+  padding: 12px;
+  background-color: #000;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #444;
+}
+
+.menu-principal input[type="button"] {
+  width: 100%;
+  max-width: 250px;
+  margin: 10px auto;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.menu-principal input[type="button"]:hover {
+  background-color: #444;
+}
+
+.menu-principal input[type="button"]:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+.menu-principal input[type="file"]{
+  width: 100%;
+  max-width: auto;
+  margin: 10px auto;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+.menu-principal input[type="file"]:hover{
+  background-color: #444;
+}
+.menu-principal input[type="file"]:focus{
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}

@@ -2,8 +2,10 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Controle de Estoque</title>
+    <title>Estoque de entrada</title>
     <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <header>
@@ -13,7 +15,7 @@
                 <img src="img/logo.png" alt="Logo Negrão">
                 </div>
                 <div class="search-container">
-                    <input type="text" placeholder="Buscar">
+                    <input type="text" id="searchInput" placeholder="Buscar">
                 </div>
                 <div class="user-info">
                     <span>João silva</span>
@@ -34,11 +36,13 @@
             <a href="#">Sair</a>
         </div>
     </aside>
+    <div id="lista"></div>
+    <table id="listaCsv"></table>
     <div class="menu-principal">
-      <p>Selecione o estoque desejado:</p><br>
-      <input type="button" value="Entrada de Produtos" onclick="window.location.href='entrada_simulacao.html';"><br><br>
-      <input type="button" value="Saída de produtos" onclick="window.location.href='envio.html';"><br><br>
       <input type="button" value ="Voltar" onclick="window.location.href='menu_principal.html';">
     </div>
+    <script src="estoque_entrada.js"></script>
+    <script src="pdf_generator.js"></script>
+    <script src="buscador.js"></script>
 </body>
 </html>

@@ -9,31 +9,30 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="navbar">
-                <div class="logo">
-                <img src="img/logo.png" alt="Logo Negrão">
-                </div>
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Buscar">
-                </div>
-                <div class="user-info">
-                    <span>João silva</span>
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </nav>
+      <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="img/logo.png" alt="Logo Negrão">
+        </div>
+        <div class="search-container">
+             <input type="text" id="searchInput" placeholder="Buscar">
+        </div>
+        <div class="user-info">
+          <span id="userText"></span>
+          <button id="btnSair" title="Sair">Sair</button>
+          </button>
+      </div>
+   </nav>
     </header>
 
         <aside>
         <div class="sidebar">
             <a href="menu_principal.html">Inicio</a>
             <a href="estoque.html">Estoque</a>
-            <a href="cadastro_produtos.html">Cadastrar peças</a>
-            <a href="cadastro_usuario.html">Cadastrar usuários</a>
+            <a href="cadastro_produtos.html" class="admin-only">Cadastrar peças</a>
+            <a href="cadastro_usuario.html" class="admin-only">Cadastrar usuários</a>
             <a href="saida_simulacao.html">Enviar produto</a>
             <a href="envio.html">Histórico de movimentações</a>
-            <a href="#">Sair</a>
         </div>
     </aside>
     <div id="listaSaida"></div>
@@ -44,5 +43,6 @@
    <script src="estoque_saida.js"></script>
     <script src="pdf_generator.js"></script>
     <script src="buscador_saida.js"></script>
+    <script src="permissao_usuario.js"></script>
 </body>
 </html>

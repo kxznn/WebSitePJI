@@ -1,45 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>DASHBOARD DE OPERAÇÕES</title>
-    <link rel="stylesheet" href="style.css"/>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css"/>
+  <title>Menu Principal</title>
+  </head>
 <body>
-    <header>
-        <nav>
-            <div class="navbar">
-                <div class="logo">
-                <img src="img/logo.png" alt="Logo Negrão">
-                </div>
-                <div class="search-container">
-                    <input type="text" placeholder="Buscar">
-                </div>
-                <div class="user-info">
-                    <span>João silva</span>
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <aside>
-        <div class="sidebar">
-            <a href="menu_principal.html">Inicio</a>
-            <a href="estoque.html">Estoque</a>
-            <a href="cadastro_produtos.html">Cadastrar peças</a>
-            <a href="cadastro_usuario.html">Cadastrar usuários</a>
-            <a href="saida_simulacao.html">Enviar produto</a>
-            <a href="envio.html">Histórico de movimentações</a>
-            <a href="#">Sair</a>
-        </div>
-    </aside>
-    <div class="menu-principal">
-      <input type="button" value="Cadastrar de Usuários" onclick="window.location.href='cadastro_usuario.html';"><br>
-      <input type="button" value="Cadastro de Produtos" onclick="window.location.href='cadastro_produtos.html';"><br>
-      <input type="button" value="Envio de produtos" onclick="window.location.href='saida_simulacao.html';"><br>
-      <input type="button" value="Dashboard de Eventos" onclick="window.location.href='eventos.html';"><br>
-      <input type="button" value="Estoque" onclick="window.location.href='estoque.html';">
-     </div>
-    <script src="cadastro_produtos.js"></script>
+    <nav>
+  <div class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Negrão">
+    </div>
+    <div class="user-info">
+      <span id="userText"></span>
+      <button id="btnSair" title="Sair">Sair</button>
+      </button>
+    </div>
+  </div>
+</nav>
+  <h1>Menu Principal</h1>
+  <div class="menu-principal">
+    <!-- Botões comuns para todos -->
+    <input type="button" value="Cadastro de Saída" onclick="window.location.href='saida_simulacao.html';"><br>
+    <input type="button" value="Visualizar Saída" onclick="window.location.href='envio.html';"><br>
+    <input type="button" value="Visualizar Estoque" onclick="window.location.href='entrada_simulacao.html';"><br>
+
+    <!-- Botões exclusivos para administrador -->
+    <input type="button" value="Cadastro de Usuários" class="admin-only" onclick="window.location.href='cadastro_usuario.html';"><br>
+    <input type="button" value="Cadastro de Produtos" class="admin-only" onclick="window.location.href='cadastro_produtos.html';"><br>
+    <input type="button" value="Eventos de estoque" class="admin-only" onclick="window.location.href='eventos.html';"><br>
+  </div>
+
+  <script>
+    const usuario = JSON.parse(localStorage.getItem("usuario_logado"));
+
+    if (!usuario) {
+      alert("Você precisa estar logado.");
+      window.location.href = "cadastro_usuario.html";
+    } else {
+      const userInfo = document.querySelector(".user-info span");
+      if (userInfo) {
+        userInfo.textContent = `Olá, ${usuario.nome} (${usuario.tipo})`;
+      }
+
+      if (usuario.tipo !== "admin") {
+        document.querySelectorAll(".admin-only").forEach(el => {
+          el.style.display = "none";
+        });
+      }
+        
+      const btnSair = document.getElementById("btnSair");
+      if (btnSair) {
+        btnSair.addEventListener("click", () => {
+          localStorage.removeItem("usuario_logado");
+          window.location.href = "login.html";
+        });
+      }
+    }
+  </script>
 </body>
 </html>

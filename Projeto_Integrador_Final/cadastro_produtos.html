@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Produtos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<style>
+  .cadastro {
+    margin-top: -20px;
+    width: 700px;
+    background-color: rgba(240, 240, 240, 0.685);
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: black;
+    padding: 50px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(50px);
+    margin: 30px auto 20px;
+    animation: floatUp 0.8s ease;
+    max-width: 90%;
+  }
+
+  .cadastro input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  .cadastro textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  .cadastro textarea:focus {
+    border-color: #4CAF50;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+  }
+
+  .menu-principal input {
+    text-align: center;
+  }
+
+  .menu-principal input [type="text"] {
+    width: 500px;
+  }
+  
+</style>
+
+<body>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="img/logo.png" alt="Logo Negrão">
+        </div>
+        <div class="user-info">
+          <span id="userText"></span>
+          <button id="btnSair" title="Sair">Sair</button>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <aside>
+    <div class="sidebar">
+      <a href="menu_principal.html">Inicio</a>
+      <a href="estoque.html">Estoque</a>
+      <a href="cadastro_produtos.html" class="admin-only">Cadastrar peças</a>
+      <a href="cadastro_usuario.html" class="admin-only">Cadastrar usuários</a>
+      <a href="saida_simulacao.html">Enviar produto</a>
+      <a href="envio.html">Histórico de movimentações</a>
+
+    </div>
+  </aside>
+  <form class="cadastro" id="cadastroForm">
+    <label for="nome">Nome produto:</label><br>
+    <input type="text" id="nome" required><br>
+    <label for="codigo">Código:</label><br>
+    <input type="number" id="codigo" required><br>
+    <label for="quantidade">Quantidade:</label><br>
+    <input type="number" id="quantidade" required><br>
+    <label for="descricao">Descrição produto:</label><br>
+    <textarea id="descricao" required></textarea><br>
+    <button type="submit">Cadastrar produto</button><br>
+
+    <div class="menu-principal">
+      <input type="button" value="Verificar Estoque" onclick="window.location.href='estoque.html';"><br>
+      <input type="file" id="arquivo_produto_csv" accept=".csv"><br>
+      <input type="button" value="Voltar" onclick="window.location.href='menu_principal.html';">
+    </div>
+  </form>
+
+  <script src="cadastro_produtos.js"></script>
+  <script src="csv_reader.js"></script>
+  <script src="permissao_usuario.js"></script>
+</body>
+
+</html>

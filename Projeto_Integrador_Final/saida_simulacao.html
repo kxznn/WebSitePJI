@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Saída de Produtos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<style>
+  .cadastro {
+    margin-top: -20px;
+    width: 700px;
+    background-color: rgba(240, 240, 240, 0.685);
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: black;
+    padding: 50px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(50px);
+    margin: 30px auto 20px;
+    animation: floatUp 0.8s ease;
+    max-width: 90%;
+  }
+
+  .cadastro input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: left;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  .menu-principal input[type="button"] {
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px auto;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+</style>
+
+<body>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="img/logo.png" alt="Logo Negrão">
+        </div>
+        <div class="user-info">
+          <span id="userText"></span>
+          <button id="btnSair" title="Sair">Sair</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <aside>
+    <div class="sidebar">
+      <a href="menu_principal.html">Inicio</a>
+      <a href="estoque.html">Estoque</a>
+      <a href="cadastro_produtos.html" class="admin-only">Cadastrar peças</a>
+      <a href="cadastro_usuario.html" class="admin-only">Cadastrar usuários</a>
+      <a href="saida_simulacao.html">Enviar produto</a>
+      <a href="envio.html">Histórico de movimentações</a>
+    </div>
+  </aside>
+  <div class="cadastro">
+    <form id="cadastroForm">
+      <label for="nome">Nome:</label><br>
+      <input type="text" id="nome" required><br>
+      <label for="nome_produto">Nome produto:</label><br>
+      <input type="text" id="nome_produto" required><br>
+      <label for="codigo">Código:</label><br>
+      <input type="number" id="codigo" required><br>
+      <label for="quantidade">Quantidade:</label><br>
+      <input type="number" id="quantidade" required><br>
+      <label for="descricao">Descrição produto:</label><br>
+      <input type="text" id="descricao" required><br>
+      <label for="cep">CEP:</label><br>
+      <input type="number" id="cep" required><br>
+      <label for="bairro">Bairro:</label><br>
+      <input type="text" id="bairro" required><br>
+      <label for="complemento">Complemento:</label><br>
+      <input type="text" id="complemento" required><br>
+      <label for="cidade">Cidade:</label><br>
+      <input type="text" id="cidade" required><br>
+      <label for="estado">Estado:</label><br>
+      <input type="text" id="estado" required><br><br>
+      <button type="submit">Enviar Produto</button><br>
+
+      <div class="menu-principal">
+        <input type="button" value="Voltar" onclick="window.location.href='menu_principal.html';">
+      </div>
+
+    </form>
+  </div>
+
+  <script src="estoque_saida.js"></script>
+  <script src="saida_simulacao.js"></script>
+  <script src="buscador.js"></script>
+  <script src="permissao_usuario.js"></script>
+</body>
+
+</html>

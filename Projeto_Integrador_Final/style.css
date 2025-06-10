@@ -1,0 +1,645 @@
+/* Reset e base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  padding-top: 100px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Navbar fixa */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.6s ease-in-out;
+}
+
+/* Logo da empresa */
+.logo img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Informações do usuário */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#userText {
+  color: #fff;
+  font-weight: 500;
+}
+
+#btnSair {
+  background: linear-gradient(45deg, red, #a62b2b);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+#btnSair:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Formulários */
+.cadastroForm {
+  padding: 30px 40px;
+  animation: floatUp 0.6s ease-in-out;
+}
+
+.cadastroForm h2 {
+  color: #222;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Botões */
+button,
+.menu-principal input[type="button"],
+.menu-principal input[type="file"],
+.voltar input[type="button"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px auto;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+.menu-principal input[type="button"]:hover,
+.menu-principal input[type="file"]:hover,
+.voltar input[type="button"]:hover {
+  background-color: #444;
+  transform: scale(1.02);
+}
+
+.menu-principal input[type="button"]:focus,
+.menu-principal input[type="file"]:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 15px 20px 0;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input:invalid {
+  border-color: rgb(255, 255, 255, .2);
+}
+
+input:valid {
+  border-color: rgb(0, 0, 0);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 20px;
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+/* Gráficos */
+#chartDiv,
+#chartDi_saida {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 20px auto;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 320px;
+  height: calc(100% - 80px);
+  background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+  padding: 30px 20px;
+  color: white;
+  animation: fadeIn 0.8s ease;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 15px 0;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 30px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.sidebar a:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Sidebar responsiva */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+}
+
+/* Remover header vazio */
+header:empty {
+  display: none;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content {
+  animation: fadeIn 0.8s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .main-content {
+    margin-left: 250px;
+    padding: 30px;
+  }
+
+  .content-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .navbar {
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main-content {
+    margin-left: 220px;
+    padding: 25px;
+  }
+
+  .content-header h1 {
+    font-size: 2rem;
+  }
+
+  .search-container {
+    max-width: 300px;
+  }
+
+  #listaCsv th,
+  #listaCsv td {
+    padding: 12px 10px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    z-index: 1001;
+    width: 280px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .navbar {
+    padding: 12px 20px;
+    flex-wrap: nowrap;
+  }
+
+  .search-container {
+    margin: 0 15px;
+    max-width: 200px;
+    flex: 1;
+  }
+
+  .content-header {
+    padding: 25px 20px;
+    text-align: center;
+  }
+
+  .content-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .content-header p {
+    font-size: 1rem;
+  }
+
+  #listaCsv {
+    font-size: 0.9rem;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  #listaCsv th,
+  #listaCsv td {
+    padding: 10px 8px;
+    min-width: 100px;
+  }
+
+  #lista {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .menu-principal input[type="button"] {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .search-container {
+    max-width: 150px;
+    margin: 0 10px;
+  }
+
+  #searchInput {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .user-info {
+    gap: 8px;
+  }
+
+  #userText {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  #btnSair {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .content-header {
+    padding: 20px 15px;
+  }
+
+  .content-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .navbar .mobile-menu-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1002;
+  }
+
+  .logo {
+    order: 1;
+    align-self: center;
+  }
+
+  .search-container {
+    order: 2;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .user-info {
+    order: 3;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .content-header h1 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .content-header p {
+    font-size: 0.9rem;
+  }
+
+  .main-content {
+    margin-top: 160px;
+    padding: 12px;
+  }
+
+  #listaCsv {
+    font-size: 0.8rem;
+  }
+
+  #listaCsv th,
+  #listaCsv td {
+    padding: 8px 6px;
+    min-width: 80px;
+  }
+
+  #lista {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .menu-principal input[type="button"] {
+    padding: 12px 25px;
+    font-size: 0.95rem;
+    width: auto;
+    min-width: 120px;
+  }
+
+  .sidebar {
+    width: 100%;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebar a {
+    margin: 8px 0;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .content-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .content-header p {
+    font-size: 0.85rem;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 10px;
+    margin-top: 150px;
+  }
+
+  #listaCsv th,
+  #listaCsv td {
+    padding: 6px 4px;
+    font-size: 0.75rem;
+    min-width: 70px;
+  }
+
+  .menu-principal input[type="button"] {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  #userText {
+    display: none;
+  }
+
+  #btnSair {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation for tablets */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .content-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  .logo img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Scrollbar Styles */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  z-index: 1002;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+/* Overlay for mobile sidebar */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+  .sidebar-overlay.show {
+    display: block;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .sidebar a {
+    padding: 18px 20px;
+    font-size: 1rem;
+  }
+
+  #searchInput {
+    padding: 15px 20px;
+    font-size: 16px;
+    /* Prevents zoom on iOS */
+  }
+
+  .menu-principal input[type="button"] {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    min-height: 48px;
+  }
+
+  #btnSair {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+}
+
+/* Glass Effect for Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}

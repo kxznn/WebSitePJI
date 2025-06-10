@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de usuários</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    .cadastro {
+        margin-top: -20px;
+        width: 420px;
+        background-color: rgba(240, 240, 240, 0.685);
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 10px;
+        color: black;
+        padding: 30px 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        backdrop-filter: blur(50px);
+        margin: 30px auto 20px;
+        animation: floatUp 0.8s ease;
+    }
+
+    .cadastro input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: left;
+        box-sizing: border-box;
+        outline: none;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+    }
+
+    .cadastro input[type="submit"] {
+        width: 30%;
+        padding: 10px;
+        text-align: center;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+        margin: 10px auto;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .menu-principal input[type="button"] {
+        width: 30%;
+        padding: 10px;
+        text-align: center;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+        margin: 10px auto;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo Negrão">
+
+                </div>
+            </div>
+        </nav>
+    </header><br><br>
+    <h2>Cadastro de usuário</h2>
+    <form class="cadastro" id="cadastroForm"><br><br>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" required><br>
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" required><br>
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" required><br><br>
+        <button type="submit">Cadastrar usuário</button><br><br>
+
+        <div class="menu-principal">
+            <input type="button" value="Voltar" onclick="window.location.href='menu_principal.html';">
+        </div>
+    </form>
+
+    <script src="cadastro_usuario.js"></script>
+</body>
+
+</html>

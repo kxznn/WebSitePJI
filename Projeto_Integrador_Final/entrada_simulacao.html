@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Estoque de entrada</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<style>
+
+  
+
+</style>
+
+<body>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="img/logo.png" alt="Logo Negrão">
+        </div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Buscar">
+        </div>
+        <div class="user-info">
+          <span id="userText"></span>
+          <button id="btnSair" title="Sair">Sair</button>
+          </button>
+        </div>
+    </nav>
+  </header>
+
+  <aside>
+    <div class="sidebar">
+      <a href="menu_principal.html">Inicio</a>
+      <a href="estoque.html">Estoque</a>
+      <a href="cadastro_produtos.html" class="admin-only">Cadastrar peças</a>
+      <a href="cadastro_usuario.html" class="admin-only">Cadastrar usuários</a>
+      <a href="saida_simulacao.html">Enviar produto</a>
+      <a href="envio.html">Histórico de movimentações</a>
+    </div>
+  </aside>
+  <div id="lista"></div>
+  <table id="listaCsv"></table>
+  <div class="menu-principal">
+    <input type="button" value="Voltar" onclick="window.location.href='menu_principal.html';">
+  </div>
+  <script src="estoque_entrada.js"></script>
+
+  <script src="pdf_generator.js"></script>
+  <script src="buscador.js"></script>
+  <script src="permissao_usuario.js"></script>
+</body>
+
+</html>

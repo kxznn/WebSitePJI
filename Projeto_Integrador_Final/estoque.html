@@ -1,41 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Controle de Estoque</title>
-    <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <title>Controle de Estoque</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .menu-principal {
+      flex: 1;
+      border-radius: 20px;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      width: 800px;
+    }
+
+    .menu-principal::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .menu-principal input[type="button"] {
+      background: linear-gradient(135deg, #333, #1a1a1a);
+      color: #fff;
+      border: 2px solid #555;
+      padding: 1.2rem 2.5rem;
+      margin: 0.8rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      min-width: 280px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .menu-principal input[type="button"]::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .menu-principal input[type="button"]:hover::before {
+      left: 100%;
+    }
+
+    .menu-principal input[type="button"]:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      border-color: #777;
+      background: linear-gradient(135deg, #444, #2a2a2a);
+    }
+    .menu-principal p{
+      font-size: 40px;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-     <nav>
-        <div class="navbar">
-          <div class="logo">
-            <img src="img/logo.png" alt="Logo Negrão">
-          </div>
-          <div class="user-info">
-            <span id="userText"></span>
-            <button id="btnSair" title="Sair">Sair</button>
-            </button>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <img src="img/logo.png" alt="Logo Negrão">
+        </div>
+        <div class="user-info">
+          <span id="userText"></span>
+          <button id="btnSair" title="Sair">Sair</button>
+          </button>
         </div>
     </nav>
-    </header>
+  </header>
 
-        <aside>
-        <div class="sidebar">
-            <a href="menu_principal.html">Inicio</a>
-            <a href="estoque.html">Estoque</a>
-            <a href="cadastro_produtos.html" class="admin-only">Cadastrar peças</a>
-            <a href="cadastro_usuario.html" class="admin-only">Cadastrar usuários</a>
-            <a href="saida_simulacao.html">Enviar produto</a>
-            <a href="envio.html">Histórico de movimentações</a>
-        </div>
-    </aside>
-    <div class="menu-principal">
-      <p>Selecione o estoque desejado:</p><br>
-      <input type="button" value="Entrada de Produtos" onclick="window.location.href='entrada_simulacao.html';"><br><br>
-      <input type="button" value="Saída de produtos" onclick="window.location.href='envio.html';"><br><br>
-      <input type="button" value ="Voltar" onclick="window.location.href='menu_principal.html';">
-      <script src="permissao_usuario.js"></script>
+  <aside>
+    <div class="sidebar">
+      <a href="menu_principal.html">Inicio</a>
+      <a href="estoque.html">Estoque</a>
+      <a href="cadastro_produtos.html" class="admin-only">Cadastrar peças</a>
+      <a href="cadastro_usuario.html" class="admin-only">Cadastrar usuários</a>
+      <a href="saida_simulacao.html">Enviar produto</a>
+      <a href="envio.html">Histórico de movimentações</a>
+
     </div>
+  </aside>
+  <div class="menu-principal">
+    <p>Selecione o estoque desejado:</p><br>
+    <input type="button" value="Entrada de Produtos" onclick="window.location.href='entrada_simulacao.html';"><br><br>
+    <input type="button" value="Saída de produtos" onclick="window.location.href='envio.html';"><br><br>
+    <input type="button" value="Voltar" onclick="window.location.href='menu_principal.html';">
+    <script src="permissao_usuario.js"></script>
+  </div>
 </body>
+
 </html>

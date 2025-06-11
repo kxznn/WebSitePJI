@@ -313,7 +313,7 @@ header:empty {
   }
 
   .search-container {
-    margin: 0 15px;
+    margin: 15px;
     max-width: 200px;
     flex: 1;
   }
